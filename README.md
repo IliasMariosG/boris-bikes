@@ -15,3 +15,19 @@ As a person,
 So that I can use a good bike,
 I'd like to see if a bike is working
 ```
+
+### Objects and Messages Interaction
+
+|Object|Message|
+|------|-------|
+|person|       |
+|bike|         |
+
+|Object|Message|
+|------|-------|
+|person|       |
+|bike|is_bike_working?|
+
+### Diagram
+
+![diagram-bike-docking-station](https://user-images.githubusercontent.com/57366310/100643728-1b5f7c00-3343-11eb-8572-c2d8a3645375.png)
