@@ -6,4 +6,10 @@ describe DockingStation do
       expect(subject).to respond_to :release_bike
     end
   end
-end 
+  context 'when bike is working' do
+    it 'releases a bike' do
+      bike = subject.release_bike
+      expect(bike).to be_working
+    end
+  end
+end
