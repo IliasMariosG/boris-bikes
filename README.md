@@ -7,26 +7,43 @@ To help structure your work, here are 22 challenges. They all build on one anoth
 ## User Stories
 
 ```text
+1
 As a person,
 So that I can use a bike,
 I'd like a docking station to release a bike.
 
+2
 As a person,
 So that I can use a good bike,
 I'd like to see if a bike is working
+
+3
+As a member of the public
+So I can return bikes I've hired
+I want to dock my bike at the docking station
 ```
 
 ### Objects and Messages Interaction
 
+1
 |Object|Message|
 |------|-------|
 |person|       |
 |bike|         |
+|docking_station| releases_a_bike|
 
+2
 |Object|Message|
 |------|-------|
 |person|       |
 |bike|is_bike_working?|
+
+3
+|Object|Message|
+|------|-------|
+|member_of_public|       |
+|bike|hire_a_bike|
+|docking_station |(return) dock_a_bike |
 
 ### Diagram
 
