@@ -8,4 +8,16 @@ describe DockingStation do
       expect(bike).to be_working
     end
   end
+  
+  it { is_expected.to respond_to(:dock_bike).with(1).argument }
+  
+  it { is_expected.to respond_to(:bike) }
+  it 'docks a bike' do
+    bike = Bike.new
+    # subject == #<DockingStation:0x00007ffccc1715d0 @bike=#<Bike:0x00007ffccc1715f8>>
+    # subject.dock_bike(bike) == #<Bike:0x00007ff35a8b9480>
+    subject.dock_bike(bike)
+    # subject.bike == #<Bike:0x00007fc1129f53f0>
+    expect(subject.bike).to eq bike
+  end
 end
