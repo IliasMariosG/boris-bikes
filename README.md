@@ -50,6 +50,14 @@ I want to see a bike that has been docked
 |bike|hire_a_bike|
 |docking_station |(return) dock_a_bike |
 
+4
+|Object|Message|
+|------|-------|
+|member_of_public|      |
+|                |decide|
+|docking_station |use_docking_station |
+| bike           |dock_bike|
+
 ### Diagram
 
 ![diagram-bike-docking-station](https://user-images.githubusercontent.com/57366310/100643728-1b5f7c00-3343-11eb-8572-c2d8a3645375.png)
