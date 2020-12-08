@@ -9,6 +9,7 @@ class DockingStation
   end
   # DockingStation instance docks a Bike instance
   def dock_bike(bike)
+    fail 'No more than one bike' if @bike
     @bike = bike
   end
 end
