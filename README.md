@@ -26,6 +26,12 @@ I want to dock my bike at the docking station
 As a member of the public
 So I can decide whether to use the docking station
 I want to see a bike that has been docked
+
+5
+As a member of the public,
+So that I am not confused and charged unnecessarily,
+I'd like docking stations not to release bikes when
+there are none available
 ```
 
 ### Objects and Messages Interaction
@@ -57,6 +63,13 @@ I want to see a bike that has been docked
 |                |decide|
 |docking_station |use_docking_station |
 | bike           |dock_bike|
+
+5
+|Object|Message|
+|------|-------|
+|member_of_public|not_getting_confused being_charged_unnecessarily? |
+|docking_station |does_not_release_a_bike (Exception) |
+| bike           |bike_available?|
 
 ### Diagram
 
