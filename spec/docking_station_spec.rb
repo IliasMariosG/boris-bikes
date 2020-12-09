@@ -11,14 +11,18 @@ describe DockingStation do
   
   it { is_expected.to respond_to(:dock_bike).with(1).argument }
   
-  it { is_expected.to respond_to(:bike) }
-  it 'returns a docked bike' do
-    bike = Bike.new
-    # subject == #<DockingStation:0x00007ffccc1715d0 @bike=#<Bike:0x00007ffccc1715f8>>
-    # subject.dock_bike(bike) == #<Bike:0x00007ff35a8b9480>
-    subject.dock_bike(bike)
-    # subject.bike == #<Bike:0x00007fc1129f53f0>
-    expect(subject.bike).to eq bike
+  it { is_expected.to respond_to(:bikes) }
+  describe '#dock_bike' do
+    it 'raises an error when trying to dock 21 bikes' do
+      bike = Bike.new
+      20.times { subject.dock_bike(bike) }
+      expect { subject.dock_bike(bike) }.to raise_error 'Docking station full: Cannot accept more than 20 bikes'
+    end
+    it 'returns a docked bike' do
+      bike = Bike.new
+      subject.dock_bike(bike)
+      expect(subject.release_bike).to eq bike
+    end
   end
   describe '#release_bike' do
     it 'raises an error when there are no bikes available' do
