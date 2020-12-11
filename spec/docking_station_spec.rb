@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 require 'docking_station'
 
 describe DockingStation do
