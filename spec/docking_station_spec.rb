@@ -14,17 +14,22 @@ describe DockingStation do
   
   it { is_expected.to respond_to(:dock_bike).with(1).argument }
   
-  it { is_expected.to respond_to(:bikes) }
+  #it { is_expected.to respond_to(:bikes) }
   describe '#dock_bike' do
     it 'raises an error when trying to dock 21 bikes' do
       bike = Bike.new
-      DockingStation::DEFAULT_CAPACITY.times { subject.dock_bike(bike) }
+      20.times { subject.dock_bike(bike) }
       expect { subject.dock_bike(bike) }.to raise_error 'Docking station full: Cannot accept more than 20 bikes'
     end
     it 'returns a docked bike' do
       bike = Bike.new
       subject.dock_bike(bike)
       expect(subject.release_bike).to eq bike
+    end
+    it 'raises an error when full' do
+      bike = Bike.new
+      subject.capacity.times { subject.dock_bike(bike) }
+      expect { subject.dock_bike(bike) }.to raise_error 'Docking station full: Cannot accept more than 20 bikes'
     end
   end
   describe '#release_bike' do
@@ -35,6 +40,31 @@ describe DockingStation do
       bike = Bike.new
       subject.dock_bike(bike)
       expect(subject.release_bike).to eq bike
+    end
+  end
+  it 'has a default capacity of 20' do
+    expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
+  describe '#initialize' do
+    # The commented out lines of code are the unit test implementation of the feature test
+    # for a variable capacity
+    # let(:bike) { Bike.new }
+    # let(:docking_station) { DockingStation.new(50)}
+    # it 'has a variable capacity' do
+    #   #docking_station = DockingStation.new(50)
+      
+    #   50.times { docking_station.dock_bike(bike) }
+      
+    #   expect { docking_station.dock_bike(bike) }.to raise_error 'Docking station full: Cannot accept more than 20 bikes' 
+    # end
+    bike = Bike.new
+    docking_station = DockingStation.new
+    it 'defaults capacity' do
+      DockingStation::DEFAULT_CAPACITY.times do
+        docking_station.dock_bike(bike)
+      end
+      
+      expect { docking_station.dock_bike(bike) }.to raise_error 'Docking station full: Cannot accept more than 20 bikes'
     end
   end
 end

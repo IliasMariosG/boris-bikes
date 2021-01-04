@@ -1,11 +1,12 @@
 require './lib/bike'
 
 class DockingStation
-  attr_reader :bikes
+  attr_accessor :capacity
   DEFAULT_CAPACITY = 20
   
-  def initialize
+  def initialize(capacity=DEFAULT_CAPACITY)
     @bikes = []
+    @capacity = capacity
   end
   def release_bike
     fail 'No bikes available' unless not_empty?
@@ -17,7 +18,8 @@ class DockingStation
     @bikes << bike # array of bikes
   end
 
-  #
+  private
+  attr_reader :bikes
   def not_empty?
     @bikes.count >= 1
   end
