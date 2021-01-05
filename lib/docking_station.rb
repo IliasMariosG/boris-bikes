@@ -24,7 +24,7 @@ class DockingStation
     @bikes << bike # array of bikes
   end
 
- # private
+ private
   def not_empty?
     @bikes.count >= 1
   end
@@ -36,10 +36,10 @@ class DockingStation
   end
 end
 
-station = DockingStation.new
-bike = Bike.new
-station.dock_bike(bike)
-bike.report_broken
-bike.broken?
-station.not_empty?
-station.broken_bike?
+# station = DockingStation.new
+# bike = Bike.new
+# station.dock_bike(bike)
+# bike.report_broken
+# bike.broken?
+# station.not_empty?
+# station.broken_bike?
