@@ -39,6 +39,22 @@ describe DockingStation do
       
       expect { subject.dock_bike(bike) }.to raise_error 'Docking station full: Cannot accept more than 20 bikes'
     end
+    it 'allows user to dock a returning broken bike' do
+      bike = Bike.new
+      bike.report_broken
+
+      actual = subject.dock_bike(bike)
+      expected = [bike]
+      expect(bike).to be_broken
+      expect(actual).to eq expected
+    end
+    it 'allows user to dock a returning working bike' do
+      bike = Bike.new
+
+      expect(bike).to be_working
+      expect(bike).not_to be_broken
+      expect(subject.dock_bike(bike)).to eq [bike]
+    end
   end
   describe '#release_bike' do
     it 'releases a bike after it docks one' do
