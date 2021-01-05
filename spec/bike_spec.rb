@@ -6,6 +6,7 @@ describe Bike do
   end
   it 'responds to #report_broken' do
     bike = Bike.new
+    
     expect(bike).to respond_to :report_broken
   end
   
@@ -14,6 +15,7 @@ describe Bike do
   it 'is broken when it is reported as broken' do
     bike = Bike.new
     bike.report_broken
+    
     expect(bike).to be_broken
     expect(bike).not_to be_working
   end
