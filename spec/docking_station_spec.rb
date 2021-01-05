@@ -9,6 +9,7 @@ describe DockingStation do
    it 'is working' do
      bike = Bike.new
      expect(bike).to be_working
+     expect(bike.broken?).to be_nil
    end
   end
   
@@ -44,6 +45,12 @@ describe DockingStation do
   end
   it 'has a default capacity of 20' do
     expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
+  it 'does not release bike if broken' do
+    bike = Bike.new
+    bike.report_broken
+    subject.dock_bike(bike)
+    expect{ subject.release_bike }.to raise_error "No working bikes available"
   end
   describe '#initialize' do
     # The commented out lines of code are the unit test implementation of the feature test
