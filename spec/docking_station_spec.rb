@@ -9,7 +9,7 @@ describe DockingStation do
    it 'is working' do
      bike = Bike.new
      expect(bike).to be_working
-     'to be falsey'
+     
      # bike.broken? -> nil
      expect(bike.broken?).to be_falsey
    end
